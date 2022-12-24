@@ -1,0 +1,10 @@
+.venv
+.env
+migirations/__pycache__
+app/__pycache__
+app/core/__pycache__
+app/core/admin/__pycache__
+app/core/auth/__pycache__
+app/core/product/__pycache__
+app/core/shopping/__pycache__
+app/core/user/__pycache__

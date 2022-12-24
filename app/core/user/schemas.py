@@ -19,3 +19,19 @@ class UserReturn(BaseModel):
 
     class Config:
         orm_mode = True
+
+class AddressCreate(BaseModel):
+    title: str
+    receiver_name: str
+    receiver_mobile: str
+    full_address: str
+
+class AddressReturn(BaseModel):
+    id: int
+    title: str
+    receiver_name: str
+    receiver_mobile: str
+    full_address: str
+
+    class Config:
+        orm_mode = True

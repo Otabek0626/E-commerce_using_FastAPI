@@ -1,6 +1,8 @@
 .venv
 .env
+test.py
 migirations/__pycache__
+migirations/versions/__pycache__
 app/__pycache__
 app/core/__pycache__
 app/core/admin/__pycache__

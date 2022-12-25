@@ -9,7 +9,7 @@ from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.orm import relationship
 
 # from .admin.models import *
-# from .product.models import *
+from .product.models import *
 # from .shopping.models import *
 from .user.models import *
 

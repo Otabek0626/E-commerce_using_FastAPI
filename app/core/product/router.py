@@ -5,6 +5,15 @@ from .. import utils, schemas, database, models, oauth2
 
 from sqlalchemy import func
 
-router = APIRouter(
-    prefix="/",
-    tags=[""])
+router = APIRouter()
+
+@router.post("/", status_code=201, response_model = schemas.UserReturn)
+async def create_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
+
+    user.password = utils.hash(user.password)
+
+    user = models.User(**user.dict())
+    db.add(user)
+    db.commit()
+    db.refresh(user)
+    return user

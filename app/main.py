@@ -5,6 +5,9 @@ from sqlalchemy.orm import Session
 
 from .core import models, database, routers
 from fastapi.middleware.cors import CORSMiddleware
+
+
+
 app = FastAPI()
 
 
@@ -22,11 +25,10 @@ app.add_middleware(
 
 # models.Base.metadata.create_all(bind=database.engine)
 
-
+@app.get("/")
+async def root():
+    return {"message": "E-commerce app"}
 
 app.include_router(routers.router)
 
 
-@app.get("/")
-async def root():
-    return {"message": "E-commerce app"}

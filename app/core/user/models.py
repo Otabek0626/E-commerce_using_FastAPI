@@ -52,9 +52,10 @@ class Payment(Base):
     user_id = Column(Integer, ForeignKey("users.id"))
     payment_type = Column(String, nullable = False)
     provider = Column(String, nullable = False)
+    holder_name = Column(String, nullable = False)
     account_number = Column(Integer, nullable = False)
     cvc_number = Column(Integer, nullable = False)
-    expire_date = Column(DateTime, nullable = False)
+    expire_date = Column(String, nullable = False)
 
     owner = relationship("User", back_populates="payments")
 

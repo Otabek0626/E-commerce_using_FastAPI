@@ -8,9 +8,7 @@ router = APIRouter()
 
 @router.post("/", status_code=201, response_model = schemas.UserReturn)
 async def create_user(user: schemas.UserCreate, db: Session = Depends(database.get_db)):
-
     user.password = utils.hash(user.password)
-
     user = models.User(**user.dict())
     db.add(user)
     db.commit()

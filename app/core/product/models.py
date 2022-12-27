@@ -20,29 +20,6 @@ class Product_Category(Base):
     updated_at = Column(DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
 
 
-class Product_Location(Base):
-    __tablename__ = "product_locations"
-
-    id = Column(Integer, primary_key = True, nullable = False)
-    
-    name = Column(String, nullable = False)
-    description = Column(String, nullable = False)
-
-    created_at = Column(DateTime, nullable=False, default=datetime.now())
-    updated_at = Column(DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
-
-
-class Product_Quantity(Base):
-    __tablename__ = "product_quantity"
-
-    id = Column(Integer, primary_key = True, nullable = False)
-    
-    
-
-    created_at = Column(DateTime, nullable=False, default=datetime.now())
-    updated_at = Column(DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
-
-
 class Product(Base):
     __tablename__ = "products"
 
@@ -50,7 +27,7 @@ class Product(Base):
     
     name = Column(String, nullable = False)
     description = Column(String, nullable = False)
-    inventory_id = Column(Integer)
+    category_id = Column(Integer, ForeignKey("product_categories.id"), server_default="1")
 
     created_at = Column(DateTime, nullable=False, default=datetime.now())
     updated_at = Column(DateTime, nullable=False, default=datetime.now(), onupdate=datetime.now())
